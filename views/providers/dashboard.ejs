@@ -1,0 +1,24 @@
+<% include ../partials/head %>
+<% include ../partials/providernavbar %>
+
+
+<div class="container">
+    <h1 class="mt-4">Dashboard</h1>
+    <p class="lead mb-3">Welcome <%= user.name %></p>
+    <p class="lead mb-3">Address <%= user.location.address %></p>
+    <p class="lead mb-3">Longitude <%= user.location.coordinates[0]%></p>
+    <p class="lead mb-3">latitude <%= user.location.coordinates[1]%></p>
+
+
+    <p class="lead mb-3">Phone Number <%= user.phonenumber %></p>
+    <p class="lead mb-3">password <%= user.password %></p>
+    <p class="lead mb-3">email <%= user.email %></p>
+
+
+
+
+    <a href="/logout" class="btn btn-secondary">Logout</a>
+</div>
+
+<% include ../partials/footer %>
+
