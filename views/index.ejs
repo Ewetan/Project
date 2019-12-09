@@ -1,26 +1,61 @@
-<% include ./partials/head %>
-<% include ./partials/navbar %>
+<% include ./partials/head %> <% include ./partials/navbar %>
 
-<div class="jumbotron">
-  <div class="container">
-    <div class="row mt-5">
-      <div class="col-md-6 m-auto">
-        <div class="card card-body text-center">
-          <h4>SEARCH</h4>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control">
-            <div class="input-group-append">
-              <button class="btn btn-dark" type="button" id="button-addon2">SEARCH</button>
-            </div>
-          </div>
+ <div class="section purple lighten-5">
+    <div class="container big-padding">
+      <div class="row">
+        <div class="col s12 m12 l6 offset-l3">
+         <input type="text" name="" placeholder="🔍 Search For Services" id="" class="browser-default">
+        </div>
+          <br>
+        <div class="col s12 m12 l4 offset-l4" style="margin-top: 0.5%;">
+          <button class="btn block purple waves-effect waves-light">seach</button>
         </div>
       </div>
     </div>
-  </div>
-</div>
+ </div>
+
+ <div class="container">
+   <div class="row">
+     <div class="col s12">
+       <h5 class="center">Service Providers Near You</h5>
+       <div class="divider"></div>
+     </div>
+     <div class="col s12 m12 l4">
+       <div class="card">
+         <div class="card-image">
+           <img src="/images/pic03.jpg" alt="" srcset="">
+           <span class="card-title">mechanics</span>
+         </div>
+         <div class="card-action">
+           <a href="" class="btn purple waves-effect-waves-light block">view</a>
+         </div>
+       </div>
+     </div>
+
+     <div class="col s12 m12 l4">
+        <div class="card">
+          <div class="card-image">
+            <img src="/images/pic03.jpg" alt="" srcset="">
+            <span class="card-title">mechanics</span>
+          </div>
+          <div class="card-action">
+            <a href="" class="btn purple waves-effect-waves-light block">view</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m12 l4">
+          <div class="card">
+            <div class="card-image">
+              <img src="/images/pic03.jpg" alt="" srcset="">
+              <span class="card-title">mechanics</span>
+            </div>
+            <div class="card-action">
+              <a href="" class="btn purple waves-effect-waves-light block">view</a>
+            </div>
+          </div>
+        </div>
+   </div>
+ </div>
 
 <% include ./partials/footer %>
-
-
-
-

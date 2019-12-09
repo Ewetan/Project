@@ -1,41 +1,66 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const passport = require('passport');
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const expressValidator = require("express-validator");
 
 // Load User model
-const User = require('../models/User');
-const { forwardAuthenticated } = require('../config/auth');
+const User = require("../models/User");
+const { forwardAuthenticated } = require("../config/auth");
 
-
-router.get('/', forwardAuthenticated, (req, res) => res.render('index', { page: "Home" }));
-
+router.get("/", forwardAuthenticated, (req, res) =>
+  res.render("index", { page: "Home" })
+);
 
 // Login Page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('login', { page: "login"}));
+router.get("/login", forwardAuthenticated, (req, res) =>
+  res.render("login", { page: "login" })
+);
 
 // Register Page
-router.get('/register', forwardAuthenticated, (req, res) => res.render('register',{ page: "register"}));
+router.get("/register", forwardAuthenticated, (req, res) =>
+  res.render("register", { page: "register" })
+);
+
+router.get("/providers", (req, res) =>
+  res.render("providers", { page: "providers" })
+);
 
 // Register
-router.post('/register', (req, res) => {
-  const { name, email, password, password2, location, description, phonenumber } = req.body;
+router.post("/register", (req, res) => {
+  const {
+    name,
+    email,
+    password,
+    password2,
+    location,
+    description,
+    phonenumber
+  } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2 || !phonenumber || !location || !description) {
-    errors.push({ msg: 'Please enter all fields' });
+  if (
+    !name ||
+    !email ||
+    !password ||
+    !password2 ||
+    !phonenumber ||
+    !location ||
+    !description
+  ) {
+    errors.push({ msg: "Please enter all fields" });
   }
 
   if (password != password2) {
-    errors.push({ msg: 'Passwords do not match' });
+    errors.push({ msg: "Passwords do not match" });
   }
 
   if (password.length < 6) {
-    errors.push({ msg: 'Password must be at least 6 characters' });
+    errors.push({ msg: "Password must be at least 6 characters" });
   }
 
   if (errors.length > 0) {
-    res.render('register', {
+    res.render("register", {
       page: "register",
       errors,
       name,
@@ -47,10 +72,10 @@ router.post('/register', (req, res) => {
       phonenumber
     });
   } else {
-    User.findOne({ email: email } || {name: name}).then(user => {
+    User.findOne({ email: email } || { name: name }).then(user => {
       if (user) {
-        errors.push({ msg: 'Email already exists' });
-        res.render('register', {
+        errors.push({ msg: "Email already exists" });
+        res.render("register", {
           page: "register",
           errors,
           name,
@@ -79,11 +104,13 @@ router.post('/register', (req, res) => {
               .save()
               .then(user => {
                 req.flash(
-                  'success_msg',
-                  'You are now registered and can log in'
+                  "success_msg",
+                  "You are now registered and can log in"
                 );
                 // res.redirect('/login', { page : "login"});
-                res.redirect( '/login', res.status(200).send(), { page : "login"}); 
+                res.redirect("/login", res.status(200).send(), {
+                  page: "login"
+                });
               })
               .catch(err => console.log(err));
           });
@@ -95,19 +122,19 @@ router.post('/register', (req, res) => {
 // res.redirect(200, '/login', { page : "login"});
 
 // Login
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/providers/dashboard',
-    failureRedirect: '/login',
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/providers/dashboard",
+    failureRedirect: "/login",
     failureFlash: true
   })(req, res, next);
 });
 
 // Logout
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   req.logout();
-  req.flash('success_msg', 'You are logged out');
-  res.redirect('/login');
+  req.flash("success_msg", "You are logged out");
+  res.redirect("/login");
 });
 
 module.exports = router;

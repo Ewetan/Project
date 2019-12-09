@@ -1,19 +1,21 @@
+        <script src="/stylesheets/materialize/js/jquery-3.2.1.js"></script>
+        <script src="/stylesheets/materialize/js/materialize.js"></script>
 
+        <script>
+            $( document ).ready(function(){
+              $(".button-collapse").sideNav();
+            })
+          </script>
 
-        <% if ( page == 'register') 
-        {%> 
-          <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXgwd1qrFCNObA-I7-9ssyuGIa4sjTuPo&amp;libraries=places"
-    ></script>        
-    <%}
-      %>
-        <script src="/stylesheets/bootstrap/js/jquery-3.2.1.js"></script>
-        <script src="/stylesheets/bootstrap/js/bootstrap.js"></script>
-
-        <% if ( page == 'register') 
+        <% if ( page == 'register' || 'Home') 
           {%> 
             <script src="/javascripts/script.js"></script>
           <%}
+        %>
+
+        <% if ( page == 'Home' || 'register') 
+          {%> 
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXgwd1qrFCNObA-I7-9ssyuGIa4sjTuPo&libraries=places&callback=initMap"></script>        <%}
         %>
 
       </body>

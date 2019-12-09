@@ -4,4 +4,32 @@
     border-color: #ffc480;
 }
 
- 
+ .block{
+     width: 100%;
+ }
+
+ @font-face {
+    font-family: unica;
+    src: url(./unica-one/UnicaOne-Regular.ttf);
+}
+
+body {
+    font-family: unica, serif;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.browser-default{
+    border: solid #9c27b0  1px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 100%;
+    padding: 10px;
+    outline: invert;
+}
+
+.big-padding{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}

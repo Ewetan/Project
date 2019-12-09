@@ -1,22 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-     <div class="ml-auto">
-      <ul class="navbar-nav d-flex">
-        <li class="nav-item <% if ( page == 'Home') {%> active <%} %>">
-          <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item <% if ( page == 'Login') {%> active <%} %>">
-          <a class="nav-link" href="/login">LOG IN</a>
-        </li>
-        <li class="nav-item <% if ( page == 'Register') {%> active <%} %>">
-            <a class="nav-link" href="/register">SIGN UP</a>
-          </li>
-      </ul>
+<nav>
+    <div class="nav-wrapper purple">
+     <div class="container">
+        <a href="#!" class="brand-logo">TradeEcosystem</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          <li  <% if ( page == 'Home') {%> class = "active" <%} %>><a href="/"><i class="material-icons left">home</i>HOME</a></li>
+          <li  <% if ( page == 'login') {%> class = "active" <%} %>><a href="/login"><i class="material-icons left">lock</i>LOGIN</a></li>
+          <li  <% if ( page == 'register') {%> class = "active" <%} %>><a href="/register"><i class="material-icons left">mode_edit</i>SIGN UP</a></li>
+        </ul>
      </div>
+      <ul class="side-nav" id="mobile-demo">
+          <li  <% if ( page == 'Home') {%> class = "active" <%} %>><a href="/"><i class="material-icons left">search</i>HOME</a></li>
+          <li  <% if ( page == 'login') {%> class = "active" <%} %>><a href="/login"><i class="material-icons left">view_module</i>LOGIN</a></li>
+          <li  <% if ( page == 'register') {%> class = "active" <%} %>><a href="/register"><i class="material-icons left">view_module</i>SIGN UP</a></li>
+      </ul>
     </div>
   </nav>
+
+  
