@@ -1,8 +1,6 @@
-# Node.js & Passport Login
+# Final Year Project 
 
-This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
-
-### Version: 2.0.0
+This is a system that helps you find services around you
 
 ### Usage
 
